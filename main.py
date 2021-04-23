@@ -4,10 +4,12 @@ from restrictions import LicensePlate
 
 
 def main():
-    plates = [LicensePlate("PDG-6530"), LicensePlate("PDJ-4637")]
-    verification = Verification('2021-04-23', '19:30')
-    for i in plates:
-        print("Can be on road" if verification.can_it_be_on_road(i) else "Can't be on road")
+    plate = input(f"Insert a License Plate ")
+    date = input("Insert a date with format (YY-MM-DD) ")
+    time = input("Insert a time with the format (HH:MM) ")
+    plate_check = LicensePlate(plate)
+    verification = Verification(date, time)
+    print("Can be on road" if verification.can_it_be_on_road(plate_check) else "Can't be on road")
 
 
 if __name__ != '__main__':
